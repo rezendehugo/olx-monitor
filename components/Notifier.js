@@ -7,6 +7,8 @@ exports.sendNotification = async ( msg ) => {
 
     msg = encodeURI( msg )
 
+    console.log('Notificando')
+
     const MAX_RETRIES = 5;
 
     for (let i = 0; i <= MAX_RETRIES; i++) {
