@@ -7,3 +7,4 @@ raw-index.js
 config.js
 *.db
 *.sqlite
+node_modules
