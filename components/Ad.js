@@ -119,6 +119,20 @@ class Ad {
             return false
         }
     }
+
+    isSpamAd = () => {
+
+        // if (this.descricao.size > 500) {
+        //     this.valid = true
+        //     return true
+        // }
+        // else {
+        //     this.valid = false
+             return false
+        // }
+    }
+    
 }
+
 
 module.exports = Ad

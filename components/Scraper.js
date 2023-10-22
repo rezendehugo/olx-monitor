@@ -86,10 +86,21 @@ const scrapePage = async ($, searchTerm, notify) => {
             log.debug('Checking ad: ' + (i + 1))
 
             const advert = adList[i]
+
+            if (i == 0)
+                console.log('Ads found: ' + adsFound)
+
             const title = advert.subject
             const id = advert.listId
             const url = advert.url
             const price = parseInt(advert.price?.replace('R$ ', '')?.replace('.', '') || '0')
+            const imagens = advert.images
+            const isChatEnabled = advert.isChatEnabled
+            const professionalAd = advert.professionalAd
+            const oldPrice = advert.oldPrice
+            const imageCount = advert.imageCount
+            console.log('descricao.. ')
+            //const descricao = getDescription(url)
 
             const result = {
                 id,
@@ -149,6 +160,17 @@ const checkMaxPrice = (price, maxPrice) => {
     if (price > maxPrice) return price
     else return maxPrice
 }
+
+const getDescription = (url) =>{
+    const response  = axios(url)
+    console.log('response: ', response)
+    const html      = response.data;
+    const $         = cheerio.load(html)
+
+    return "Descricao"
+
+}
+
 
 module.exports = {
     scraper
